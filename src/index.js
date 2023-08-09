@@ -1,3 +1,3 @@
-document
-  .querySelector("body")
-  .addEventListener("click", console.log("Working"));
+import getAPI from "./WeatherAPI";
+
+getAPI();
