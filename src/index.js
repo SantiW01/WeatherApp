@@ -1,3 +1,3 @@
-import getAPI from "./WeatherAPI";
+import { GetUserInput } from "./GetUserInput";
 
-getAPI();
+document.querySelector(".input_submit").addEventListener("click", GetUserInput);
