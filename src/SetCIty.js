@@ -1,3 +1,5 @@
+import GetTemperatureInfo from "./GetTemperatureInfo";
+
 const CityCoord = {
   latitude: 0,
   longitude: 0,
@@ -26,6 +28,7 @@ export default async function SetCity(city) {
   const result = await response.json();
   CityCoord.setLatitude = result[0].lat;
   CityCoord.setLongitude = result[0].lon;
+  GetTemperatureInfo();
 }
 
 export { CityCoord };

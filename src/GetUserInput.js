@@ -1,5 +1,5 @@
 import SetCity from "./SetCIty";
-const city = {
+const City = {
   name: "",
 
   get getName() {
@@ -13,8 +13,8 @@ const city = {
 
 export function GetUserInput() {
   const userInput = document.querySelector(".user_input").value;
-  city.setName = userInput;
-  SetCity(city.getName);
+  City.setName = userInput;
+  SetCity(City.getName);
 }
 
-export { city };
+export { City };
