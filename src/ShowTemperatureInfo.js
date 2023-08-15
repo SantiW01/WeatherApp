@@ -14,7 +14,6 @@ export default function ShowTemperatureInfo() {
     Object.assign(document.createElement("h3"), {
       textContent: `${Info.getTemperature}°C`,
       classList: "city_temperature",
-      id: "celsius",
     })
   );
   document.querySelector(".info_card").appendChild(
@@ -26,7 +25,6 @@ export default function ShowTemperatureInfo() {
   document.querySelector(".info_card").appendChild(
     Object.assign(document.createElement("div"), {
       classList: "minMax_tempC",
-      id: "celsius",
     })
   );
   document.querySelector(".minMax_tempC").appendChild(
@@ -50,22 +48,30 @@ function ChangeUnits() {
     document
       .querySelector(".city_temperature")
       .replaceChildren(
-        document.createTextNode(`${Info.getTemperature * (9 / 5) + 32} °F`)
+        document.createTextNode(
+          `${(Info.getTemperature * (9 / 5) + 32).toFixed(2)} °F`
+        )
       );
     document
       .querySelector(".city_feelslike")
       .replaceChildren(
-        document.createTextNode(`${Info.getFeelsLike * (9 / 5) + 32}°F`)
+        document.createTextNode(
+          `${(Info.getFeelsLike * (9 / 5) + 32).toFixed(2)}°F`
+        )
       );
     document
       .querySelector(".min_temp")
       .replaceChildren(
-        document.createTextNode(`${Info.getTemperatureMin * (9 / 5) + 32}°F`)
+        document.createTextNode(
+          `${(Info.getTemperatureMin * (9 / 5) + 32).toFixed(2)}°F`
+        )
       );
     document
       .querySelector(".max_temp")
       .replaceChildren(
-        document.createTextNode(`${Info.getTemperatureMin * (9 / 5) + 32}°F`)
+        document.createTextNode(
+          `${(Info.getTemperatureMax * (9 / 5) + 32).toFixed(2)}°F`
+        )
       );
   } else {
     document
