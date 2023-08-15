@@ -46,16 +46,12 @@ export default async function GetTemperatureInfo() {
     { mode: "cors" }
   );
   const result = await response.json();
-  console.log(result.main.temp);
 
   Info.setTemperature = result.main.temp;
   Info.setFeelsLike = result.main.feels_like;
   Info.setTemperatureMin = result.main.temp_min;
   Info.setTemperatureMax = result.main.temp_max;
-  ShowTemperatureInfo(
-    Info.getTemperature,
-    Info.getFeelsLike,
-    Info.getTemperatureMin,
-    Info.getTemperatureMax
-  );
+  ShowTemperatureInfo();
 }
+
+export { Info };

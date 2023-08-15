@@ -1,39 +1,86 @@
+import { Info } from "./GetTemperatureInfo";
 import { City } from "./GetUserInput";
+let isCelsius = true;
 
-export default function ShowTemperatureInfo(
-  currentTemperature,
-  currentFeelsLike,
-  maxTemperature,
-  minTemperature
-) {
+export default function ShowTemperatureInfo() {
+  document.querySelector(".info_card").replaceChildren();
   document.querySelector(".info_card").appendChild(
     Object.assign(document.createElement("h2"), {
       textContent: `${City.getName}`,
+      classList: "city_name",
     })
   );
   document.querySelector(".info_card").appendChild(
     Object.assign(document.createElement("h3"), {
-      textContent: `${currentTemperature}°C`,
+      textContent: `${Info.getTemperature}°C`,
+      classList: "city_temperature",
+      id: "celsius",
     })
   );
   document.querySelector(".info_card").appendChild(
     Object.assign(document.createElement("h4"), {
-      textContent: `${currentFeelsLike}°C`,
+      textContent: `${Info.getFeelsLike}°C`,
+      classList: "city_feelslike",
     })
   );
   document.querySelector(".info_card").appendChild(
     Object.assign(document.createElement("div"), {
-      classList: "minMax_temp",
+      classList: "minMax_tempC",
+      id: "celsius",
     })
   );
-  document.querySelector(".minMax_temp").appendChild(
+  document.querySelector(".minMax_tempC").appendChild(
     Object.assign(document.createElement("p"), {
-      textContent: `${minTemperature}°C`,
+      textContent: `${Info.TemperatureMin}°C`,
+      classList: "min_temp",
     })
   );
-  document.querySelector(".minMax_temp").appendChild(
+  document.querySelector(".minMax_tempC").appendChild(
     Object.assign(document.createElement("p"), {
-      textContent: `${maxTemperature}°C`,
+      textContent: `${Info.getTemperatureMax}°C`,
+      id: "celsius",
+      classList: "max_temp",
     })
   );
 }
+
+function ChangeUnits() {
+  isCelsius = !isCelsius;
+  if (!isCelsius) {
+    document
+      .querySelector(".city_temperature")
+      .replaceChildren(
+        document.createTextNode(`${Info.getTemperature * (9 / 5) + 32} °F`)
+      );
+    document
+      .querySelector(".city_feelslike")
+      .replaceChildren(
+        document.createTextNode(`${Info.getFeelsLike * (9 / 5) + 32}°F`)
+      );
+    document
+      .querySelector(".min_temp")
+      .replaceChildren(
+        document.createTextNode(`${Info.getTemperatureMin * (9 / 5) + 32}°F`)
+      );
+    document
+      .querySelector(".max_temp")
+      .replaceChildren(
+        document.createTextNode(`${Info.getTemperatureMin * (9 / 5) + 32}°F`)
+      );
+  } else {
+    document
+      .querySelector(".city_temperature")
+      .replaceChildren(document.createTextNode(`${Info.getTemperature}°C`));
+    document
+      .querySelector(".city_feelslike")
+      .replaceChildren(document.createTextNode(`${Info.getFeelsLike}°C`));
+    document
+      .querySelector(".min_temp")
+      .replaceChildren(document.createTextNode(`${Info.TemperatureMin}°C`));
+    document
+      .querySelector(".max_temp")
+      .replaceChildren(document.createTextNode(`${Info.getTemperatureMin}°C`));
+  }
+}
+
+export { ChangeUnits };
