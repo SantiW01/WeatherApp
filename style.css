@@ -1,0 +1,55 @@
+:root {
+  color: #e63946;
+}
+body {
+  background-color: #f1faee;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h2 {
+  border-bottom: 2px solid white;
+  min-width: 90%;
+  padding: 1.3% 0% 3% 10%;
+}
+
+.form {
+  margin-top: 5%;
+}
+
+.form > form > input[type="text"] {
+  padding: 0.3rem;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  width: 10.5rem;
+}
+.form > form > button {
+  background-color: #1d3557;
+  color: white;
+  padding: 0.3rem;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  width: 3.5rem;
+}
+
+.info_card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
+  background-color: #a8dadc;
+  width: 30%;
+  border-radius: 5%;
+}
+
+.minMax_temp {
+  display: flex;
+  flex-direction: row;
+  gap: 20%;
+}
